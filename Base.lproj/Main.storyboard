@@ -22,6 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Gallery" id="PEh-Xv-SW5"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VPP-Hh-N9y"/>
                                     <barButtonItem title="Map" id="RaJ-Fg-U7b"/>
                                 </items>
                             </toolbar>
@@ -75,29 +76,20 @@
                                 <rect key="frame" x="16" y="59" width="361" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpt-e9-b5R">
-                                <rect key="frame" x="150" y="573" width="95" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Add Tags"/>
-                                <connections>
-                                    <segue destination="BcS-tf-fdl" kind="modal" modalPresentationStyle="formSheet" id="c9a-Rj-WOy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORW-i2-1Sx">
-                                <rect key="frame" x="120" y="672" width="153" height="35"/>
+                                <rect key="frame" x="120" y="735" width="153" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Change Location"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deG-UI-oy8">
-                                <rect key="frame" x="158" y="730" width="78" height="35"/>
+                                <rect key="frame" x="157" y="778" width="78" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sumbit"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucg-mc-U5c">
-                                <rect key="frame" x="126" y="622" width="141" height="35"/>
+                                <rect key="frame" x="126" y="692" width="141" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Change Picture"/>
@@ -110,6 +102,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Tags:" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oer-65-EHL">
+                                <rect key="frame" x="17" y="559" width="360" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpt-e9-b5R">
+                                <rect key="frame" x="149" y="649" width="95" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Add Tags"/>
+                                <connections>
+                                    <segue destination="BcS-tf-fdl" kind="presentation" id="y7G-fK-4ST"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dtn-5A-cC5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -118,11 +127,12 @@
                     <connections>
                         <outlet property="foodImageDisplay" destination="JNb-r4-pbH" id="0eV-6a-1H3"/>
                         <outlet property="mapView" destination="yX9-vq-OC8" id="HAp-Vs-MdI"/>
+                        <outlet property="tagsOutput" destination="oer-65-EHL" id="UG7-H7-kIQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZH-Ub-yeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="4"/>
+            <point key="canvasLocation" x="1043.5114503816794" y="3.5211267605633805"/>
         </scene>
         <!--Tags View Controller-->
         <scene sceneID="wk1-ML-023">

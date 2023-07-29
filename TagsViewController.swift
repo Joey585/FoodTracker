@@ -7,14 +7,20 @@
 
 import UIKit
 
+protocol TagsSubmit {
+    func submittedData(selectedTags:Array<String>)
+}
+
 class TagsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     var foodImageTemp:UIImage!
+    let defaults = UserDefaults.standard
 
     @IBOutlet weak var tagInput: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tagOutput: UITextView!
-
+    var delegate:TagsSubmit!
+    
     
     let tagsDB = Database()
     var selectedTags:Array<String> = []
@@ -85,12 +91,15 @@ class TagsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func updateTagList(){
         print(selectedTags)
-        var newString = selectedTags.joined(separator: ", ")
+        let newString = selectedTags.joined(separator: ", ")
         print(newString)
-        tagOutput.text = newString
+        tagOutput.text = "Tags: " + newString
     }
 
     @IBAction func completeTagsButton(_ sender: Any) {
+        if let foodView = presentingViewController as? FoodSubmittedViewController {
+            foodView.tagList = selectedTags
+        }
         self.dismiss(animated: true)
     }
 }

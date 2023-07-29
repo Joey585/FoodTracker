@@ -9,14 +9,27 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class FoodSubmittedViewController: UIViewController, MKMapViewDelegate {
+class FoodSubmittedViewController: UIViewController, MKMapViewDelegate, TagsSubmit {
+    
+    
     
     @IBOutlet weak var foodImageDisplay: UIImageView!
+    var defaults = UserDefaults.standard
     var foodImage:UIImage!
     var foodLocation:CLLocationCoordinate2D!
+    var _tagList: Array<String> = []
+    var tagList: Array<String> {
+        get {
+            return _tagList
+        }
+        set (newValue) {
+            tagsOutput.text = "Tags: " + newValue.joined(separator: ", ")
+        }
+    }
     
     @IBOutlet weak var mapView: MKMapView!
-        
+    @IBOutlet weak var tagsOutput: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +42,12 @@ class FoodSubmittedViewController: UIViewController, MKMapViewDelegate {
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
         mapView.isRotateEnabled = false
-        mapView.isPitchEnabled = false 
+        mapView.isPitchEnabled = false
+        
+        if (foodLocation.latitude == 0 && foodLocation.longitude == 0){
+            mapView.isHidden = true
+        }
+        
         
         
         // Do any additional setup after loading the view.
@@ -54,5 +72,10 @@ class FoodSubmittedViewController: UIViewController, MKMapViewDelegate {
         
         mapView.setRegion(region, animated: true)
     }
-
+    
+    func submittedData(selectedTags: Array<String>) {
+        print("Fired Event")
+        tagsOutput.text = "Tags: " + selectedTags.joined(separator: ", ")
+    }
+    
 }
